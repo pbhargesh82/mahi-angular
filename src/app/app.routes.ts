@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
-import { FirstComponent } from './components/first/first.component';
-import { SecondComponent } from './components/second/second.component';
+import { HomeComponent } from './components/home/home.component';
+import { MainComponent } from './components/main/main.component';
 
 export const routes: Routes = [
-  {path: 'first', component: FirstComponent},
-  {path: 'second', component: SecondComponent}
+  {path: 'home', component: HomeComponent},
+  {path: 'main', component: MainComponent}
 ];
