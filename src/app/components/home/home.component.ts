@@ -1,12 +1,11 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { Router } from '@angular/router';
+import { BasicModule } from '../../shared/basic/basic.module';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterOutlet, RouterLink, RouterLinkActive],
+  imports: [BasicModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
