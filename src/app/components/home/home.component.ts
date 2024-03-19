@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { BasicModule } from '../../shared/basic/basic.module';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-home',
@@ -17,10 +18,16 @@ export class HomeComponent {
 
   constructor(
     private router: Router,
-  ) { }
+    @Inject(DOCUMENT) private document: Document
+  ) {
+    const localStorage = document.defaultView?.localStorage;
+
+    if (localStorage) {
+      localStorage.setItem('isMusicOn', 'false');
+    }
+   }
 
   ngOnInit(): void {
-
   }
 
   toogleIsPlay(): void {
@@ -31,15 +38,16 @@ export class HomeComponent {
   }
 
   onGoAhead(): void {
-    if (this.youAreMy.trim().toLowerCase() === 'sunshine') {
-      console.log('Yes, right answer!');
-      this.router.navigate(['/main']);
-      //! TODO: Show a progress bar on right answer and plan pages ahead! Start a music if you can after these.
+    this.router.navigate(['/main']);
+    // if (this.youAreMy.trim().toLowerCase() === 'sunshine') {
+    //   console.log('Yes, right answer!');
+    //   this.router.navigate(['/main']);
+    //   //! TODO: Show a progress bar on right answer and plan pages ahead! Start a music if you can after these.
 
-    } else {
-      console.log('No, wrong answer!');
-      //! TODO: Show something like a message may be a hint.
-    }
+    // } else {
+    //   console.log('No, wrong answer!');
+    //   //! TODO: Show something like a message may be a hint.
+    // }
   }
 
 }

@@ -11,3 +11,11 @@ body {
   font-family: "Cormorant Garamond", serif;
   background-color: #e9d6ec;
 }
+
+.box {
+  --mask:
+    linear-gradient(#000 0 0) 50%/calc(100% - 55.5px) calc(100% - 55.5px) no-repeat,
+    radial-gradient(farthest-side, #000 98%, #0000) 0 0/60px 60px round;
+  -webkit-mask: var(--mask);
+  mask: var(--mask);
+}

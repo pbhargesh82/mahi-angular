@@ -1,1 +1,9 @@
-<p>main works!</p>
+<div class="h-full p-4 text-3xl font-semibold text-center grid grid-rows-[1fr_100px] place-items-center">
+  <p #firstTextBox class="p-4 glass opacity-0" *ngIf="showTextBox" [class.flip-in-diag-1-bl]="animate" [class.flip-out-diag-1-bl]="!animate">
+    {{ textData[textIndex] }}
+  </p>
+  <button #goAheadButton class="text-center text-2xl mt-4 border-dark border rounded-full w-fit px-4 py-2 opacity-0"
+  (click)="onGoAheadClick()" >
+    Go ahead ❤️
+  </button>
+</div>
