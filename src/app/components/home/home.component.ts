@@ -8,10 +8,9 @@ import { DOCUMENT } from '@angular/common';
   standalone: true,
   imports: [BasicModule],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  styleUrl: './home.component.scss',
 })
 export class HomeComponent {
-
   isPlay: boolean = false;
   youAreMy: string = '';
   showSunshineForm: boolean = false;
@@ -25,10 +24,9 @@ export class HomeComponent {
     if (localStorage) {
       localStorage.setItem('isMusicOn', 'false');
     }
-   }
-
-  ngOnInit(): void {
   }
+
+  ngOnInit(): void {}
 
   toogleIsPlay(): void {
     this.isPlay = true;
@@ -39,15 +37,5 @@ export class HomeComponent {
 
   onGoAhead(): void {
     this.router.navigate(['/main']);
-    // if (this.youAreMy.trim().toLowerCase() === 'sunshine') {
-    //   console.log('Yes, right answer!');
-    //   this.router.navigate(['/main']);
-    //   //! TODO: Show a progress bar on right answer and plan pages ahead! Start a music if you can after these.
-
-    // } else {
-    //   console.log('No, wrong answer!');
-    //   //! TODO: Show something like a message may be a hint.
-    // }
   }
-
 }
