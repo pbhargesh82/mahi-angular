@@ -3,9 +3,7 @@ import {
   Inject,
   Renderer2,
   ElementRef,
-  viewChild,
 } from '@angular/core';
-import { Router } from '@angular/router';
 import { Howl } from 'howler';
 import { BasicModule } from '../../shared/basic/basic.module';
 import { DOCUMENT } from '@angular/common';
@@ -19,8 +17,6 @@ import { DOCUMENT } from '@angular/common';
 })
 export class MainComponent {
   isMusicOn: boolean = false;
-  firstTextBox = viewChild<ElementRef>('firstTextBox');
-  goAheadButton = viewChild<ElementRef>('goAheadButton');
 
   textData: string[] = [
     `Happy anniversary! <br> <br> I love you. <br> <br> I love you so much. <br> <br> ❤️❤️❤️❤️❤️❤️❤️❤️`,
@@ -36,8 +32,6 @@ export class MainComponent {
 
   constructor(
     @Inject(DOCUMENT) private document: Document,
-    private renderer: Renderer2,
-    private elementRef: ElementRef
   ) {
     const localStorage = document.defaultView?.localStorage;
 
@@ -64,10 +58,6 @@ export class MainComponent {
     setTimeout(() => {
       this.showTextBox = true;
       this.animate = true;
-      this.renderer.addClass(
-        this.goAheadButton()?.nativeElement,
-        'flip-in-diag-1-bl'
-      );
     }, 1000);
   }
 

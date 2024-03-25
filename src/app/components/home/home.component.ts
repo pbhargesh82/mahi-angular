@@ -11,9 +11,11 @@ import { DOCUMENT } from '@angular/common';
   styleUrl: './home.component.scss',
 })
 export class HomeComponent {
+
   isPlay: boolean = false;
   youAreMy: string = '';
   showSunshineForm: boolean = false;
+  showError: boolean = false;
 
   constructor(
     private router: Router,
@@ -36,6 +38,14 @@ export class HomeComponent {
   }
 
   onGoAhead(): void {
-    this.router.navigate(['/main']);
+    if (this.youAreMy.trim().toLowerCase() === 'sunshine') {
+      console.log('Yes, right answer!');
+      this.showError = false;
+      this.router.navigate(['/main']);
+    } else {
+      console.log('No, wrong answer!');
+      //! TODO: Show something like a message may be a hint.
+      this.showError = true;
+    }
   }
 }

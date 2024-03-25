@@ -11,7 +11,7 @@
       Love
     </p>
   </div>
-  <div class="w-full px-4 md:w-1/2 lg:w-1/3 self-start">
+  <div class="w-full px-4 self-start">
     @if (showSunshineForm) {
     <div class="mb-12 flex flex-col font-bold items-center puff-in-center">
       <label
@@ -44,3 +44,7 @@
   />
   }
 </div>
+
+@if (showError) {
+  <div class="glass absolute p-5 grid place-items-center text-4xl bottom-4 w-full"> 🌞 </div>
+}
